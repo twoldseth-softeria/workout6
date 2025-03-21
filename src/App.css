@@ -1,0 +1,317 @@
+/* Basic reset and global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #4361ee;
+  --primary-hover: #3a56d4;
+  --danger-color: #ef476f;
+  --danger-hover: #d63e61;
+  --success-color: #06d6a0;
+  --success-hover: #05c091;
+  --warning-color: #ffd166;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #212529;
+  --light-text: #6c757d;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.2s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+/* App Layout */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.view-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  background-color: transparent;
+  color: var(--light-text);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+}
+
+.tab:hover {
+  color: var(--primary-color);
+}
+
+.tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.app-content {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Utility classes */
+.loading, .error, .no-workouts {
+  text-align: center;
+  padding: 2rem;
+  color: var(--light-text);
+}
+
+.error, .error-banner {
+  color: var(--danger-color);
+  padding: 1rem;
+  background-color: rgba(239, 71, 111, 0.1);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.actions-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn-add, .btn-add-type {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+
+.btn-add:hover, .btn-add-type:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-edit {
+  background-color: var(--warning-color);
+  color: var(--text-color);
+}
+
+.btn-edit:hover {
+  background-color: #f5c860;
+}
+
+.btn-delete {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: var(--danger-hover);
+}
+
+.btn-save {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: var(--success-hover);
+}
+
+.btn-cancel {
+  background-color: #e9ecef;
+  color: var(--text-color);
+}
+
+.btn-cancel:hover {
+  background-color: #dde1e5;
+}
+
+.btn-submit {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Form styles */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Workout List */
+.workout-list h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.workouts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.workout-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.workout-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.workout-date {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.workout-type {
+  margin-bottom: 0.5rem;
+  color: var(--light-text);
+}
+
+.workout-duration {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.workout-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Workout Types */
+.workout-type-list h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.workout-types-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.workout-type-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workout-type-name {
+  font-weight: 500;
+}
+
+.workout-type-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.type-edit-form, .add-type-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.edit-actions, .add-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
